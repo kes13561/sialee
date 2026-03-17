@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>시아리 가족 캐나다 생활</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body class="bg-slate-50">
+
+<div id="root"></div>
+
+<script type="text/javascript">
+  const { createElement: h } = React;
+
+  function App() {
+    const sections = [
+      { title: "사전 조사", text: "캐나다 생활 준비" },
+      { title: "정착 과정", text: "생활 기반 만들기" },
+      { title: "초등학교", text: "아이 학교 적응" },
+      { title: "컬리지", text: "진학 준비" },
+    ];
+
+    return h("div", { className: "max-w-3xl mx-auto p-10" },
+      h("h1", { className: "text-3xl font-bold mb-6" }, "시아리 가족의 캐나다 생활"),
+      sections.map(s =>
+        h("div", { className: "bg-white p-5 rounded-xl shadow mb-4" },
+          h("h2", { className: "font-bold text-xl" }, s.title),
+          h("p", null, s.text)
+        )
+      )
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")).render(h(App));
+</script>
+
+</body>
+</html>
