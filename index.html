@@ -2,39 +2,391 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>우리 가족 캐나다 생활</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>시아리 가족 캐나다 생활</title>
+  <meta name="description" content="시아리 가족의 캐나다 생활 준비, 정착, 학교, 진학 과정을 담은 페이지" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(to bottom, #f8fafc, #ffffff, #f0f9ff);
+    }
+  </style>
 </head>
-<body class="bg-slate-50">
+<body class="bg-slate-50 text-slate-900">
+  <div id="root"></div>
 
-<div id="root"></div>
+  <script type="text/javascript">
+    const { createElement: h } = React;
 
-<script type="text/javascript">
-  const { createElement: h } = React;
+    function App() {
+      const sections = [
+        {
+          id: "research",
+          step: "STEP 1",
+          title: "사전 조사",
+          subtitle: "캐나다 생활을 시작하기 전, 가족에게 맞는 환경을 찾는 시간",
+          text: "도시별 생활비, 치안, 학군, 대중교통, 한인 커뮤니티를 비교하면서 우리 가족에게 가장 잘 맞는 지역을 찾았습니다. 단순히 유명한 도시를 고르기보다 실제 생활이 가능한지 중심으로 조사했습니다.",
+          points: [
+            "도시별 생활비와 렌트비 비교",
+            "아이 학교와 학군 정보 조사",
+            "대중교통, 병원, 마트 접근성 확인",
+            "초기 정착 비용과 월 생활비 계산"
+          ],
+          emoji: "📚"
+        },
+        {
+          id: "settlement",
+          step: "STEP 2",
+          title: "캐나다 도착 후 정착 과정",
+          subtitle: "여행이 아닌 생활이 시작되는 첫 단계",
+          text: "공항 도착 후 임시 숙소에 머물며 휴대폰 개통, 은행 계좌 개설, 장보기, 지역 적응 등 꼭 필요한 것부터 차근차근 정리했습니다. 작은 일상이 모여 정착이 되었습니다.",
+          points: [
+            "임시 숙소 입주와 주변 환경 파악",
+            "휴대폰 개통과 은행 계좌 개설",
+            "교통카드 준비와 생활 동선 정리",
+            "장보기와 생활용품 구매"
+          ],
+          emoji: "✈️"
+        },
+        {
+          id: "elementary",
+          step: "STEP 3",
+          title: "캐나다 초등학교 입학 과정",
+          subtitle: "아이의 첫 학교 생활을 준비하는 과정",
+          text: "학교 등록은 단순한 행정 절차가 아니라 아이의 새로운 시작을 준비하는 일이었습니다. 주소 증빙, 예방접종 기록, 학교 상담 등 하나씩 차분하게 준비했습니다.",
+          points: [
+            "거주지 기준 학군 확인",
+            "여권, 비자, 주소 증빙 서류 준비",
+            "예방접종 기록 정리",
+            "ESL 프로그램과 학교 적응 지원 확인"
+          ],
+          emoji: "🎒"
+        },
+        {
+          id: "college",
+          step: "STEP 4",
+          title: "캐나다 컬리지 입학 과정",
+          subtitle: "가족의 미래를 위한 새로운 도전",
+          text: "컬리지 진학은 새로운 커리어와 안정적인 정착을 위한 중요한 단계였습니다. 전공 선택부터 입학 요건, 영어 점수, 지원 일정까지 하나씩 확인하며 준비했습니다.",
+          points: [
+            "희망 전공과 학교 비교",
+            "입학 요건과 영어 성적 준비",
+            "지원서 제출 일정 확인",
+            "학업과 가족 생활의 균형 계획"
+          ],
+          emoji: "🎓"
+        }
+      ];
 
-  function App() {
-    const sections = [
-      { title: "사전 조사", text: "캐나다 생활 준비" },
-      { title: "정착 과정", text: "생활 기반 만들기" },
-      { title: "초등학교", text: "아이 학교 적응" },
-      { title: "컬리지", text: "진학 준비" },
-    ];
+      const summaryCards = [
+        { title: "준비", text: "정보를 모으고 가족에게 맞는 선택 기준을 만들었습니다.", color: "sky" },
+        { title: "정착", text: "도착 후 생활 기반을 차근차근 만들어 갔습니다.", color: "emerald" },
+        { title: "학교", text: "아이의 새로운 환경 적응을 함께 준비했습니다.", color: "violet" },
+        { title: "미래", text: "진학과 커리어를 통해 다음 단계를 설계했습니다.", color: "amber" }
+      ];
 
-    return h("div", { className: "max-w-3xl mx-auto p-10" },
-      h("h1", { className: "text-3xl font-bold mb-6" }, "우리 가족의 캐나다 생활"),
-      sections.map(s =>
-        h("div", { className: "bg-white p-5 rounded-xl shadow mb-4" },
-          h("h2", { className: "font-bold text-xl" }, s.title),
-          h("p", null, s.text)
-        )
-      )
-    );
-  }
+      return h("div", { className: "min-h-screen" }, [
+        h("header", {
+          key: "header",
+          className: "sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur"
+        }, h("div", {
+          className: "max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
+        }, [
+          h("div", { key: "brand", className: "flex items-center gap-3" }, [
+            h("div", {
+              key: "icon",
+              className: "w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center text-lg"
+            }, "🏠"),
+            h("div", { key: "text" }, [
+              h("p", {
+                key: "mini",
+                className: "text-xs font-semibold uppercase tracking-[0.2em] text-sky-700 m-0"
+              }, "Family Story"),
+              h("h1", {
+                key: "title",
+                className: "text-base md:text-lg font-bold m-0"
+              }, "우리 가족의 캐나다 생활")
+            ])
+          ]),
+          h("nav", { key: "nav", className: "hidden md:flex gap-2" },
+            sections.map((s) =>
+              h("a", {
+                key: s.id,
+                href: "#" + s.id,
+                className: "rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700 no-underline hover:bg-slate-50 transition"
+              }, s.title)
+            )
+          )
+        ])),
 
-  ReactDOM.createRoot(document.getElementById("root")).render(h(App));
-</script>
+        h("section", {
+          key: "hero",
+          className: "relative overflow-hidden"
+        }, [
+          h("div", {
+            key: "bg1",
+            className: "absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.16),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.12),_transparent_28%)]"
+          }),
+          h("div", {
+            key: "heroWrap",
+            className: "relative max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center"
+          }, [
+            h("div", { key: "heroLeft" }, [
+              h("span", {
+                key: "badge",
+                className: "inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-sm font-medium text-sky-700"
+              }, "캐나다 이주 · 정착 · 교육 이야기"),
+              h("h2", {
+                key: "heroTitle",
+                className: "mt-6 text-4xl md:text-6xl font-bold tracking-tight leading-tight"
+              }, [
+                "낯선 나라에서 시작된",
+                h("br", { key: "br1" }),
+                "우리 가족의",
+                h("br", { key: "br2" }),
+                "새로운 일상"
+              ]),
+              h("p", {
+                key: "heroText",
+                className: "mt-6 text-lg leading-8 text-slate-600 max-w-2xl"
+              }, "캐나다 생활은 단순한 이주가 아니라 가족이 함께 준비하고, 적응하고, 성장해가는 과정이었습니다. 이 페이지는 사전 조사부터 정착, 초등학교 입학, 컬리지 준비까지 이어지는 가족의 시간을 정리한 기록입니다."),
+              h("div", {
+                key: "heroBtns",
+                className: "mt-8 flex flex-wrap gap-3"
+              }, [
+                h("a", {
+                  key: "btn1",
+                  href: "#research",
+                  className: "rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white no-underline"
+                }, "이야기 시작하기"),
+                h("a", {
+                  key: "btn2",
+                  href: "#overview",
+                  className: "rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 no-underline"
+                }, "한눈에 보기")
+              ])
+            ]),
+            h("div", { key: "heroRight", className: "grid grid-cols-2 gap-4" }, [
+              h("div", {
+                key: "card1",
+                className: "col-span-2 rounded-[28px] bg-white p-5 shadow-lg ring-1 ring-slate-200"
+              }, h("div", {
+                className: "h-56 md:h-72 rounded-[22px] bg-gradient-to-br from-sky-100 via-cyan-100 to-emerald-100 flex items-end p-5"
+              }, h("div", {
+                className: "rounded-2xl bg-white/80 backdrop-blur px-4 py-3 text-sm text-slate-700"
+              }, "가족의 캐나다 정착 이야기를 담은 메인 비주얼 영역"))),
+              h("div", {
+                key: "card2",
+                className: "rounded-[28px] bg-slate-900 text-white p-6 shadow-lg"
+              }, [
+                h("div", { key: "emoji2", className: "text-2xl" }, "🌲"),
+                h("p", { key: "p2a", className: "mt-3 text-sm text-sky-300" }, "생활"),
+                h("h3", { key: "p2b", className: "mt-2 text-xl font-bold" }, "새로운 환경"),
+                h("p", { key: "p2c", className: "mt-2 text-sm leading-6 text-slate-300" }, "도시, 집, 학교, 일상 루틴이 하나씩 자리를 잡아갑니다.")
+              ]),
+              h("div", {
+                key: "card3",
+                className: "rounded-[28px] bg-white p-6 shadow-lg ring-1 ring-slate-200"
+              }, [
+                h("div", { key: "emoji3", className: "text-2xl" }, "❤️"),
+                h("p", { key: "p3a", className: "mt-3 text-sm text-rose-600" }, "가족"),
+                h("h3", { key: "p3b", className: "mt-2 text-xl font-bold" }, "함께 적응하기"),
+                h("p", { key: "p3c", className: "mt-2 text-sm leading-6 text-slate-600" }, "가족이 함께여서 낯선 생활도 점점 익숙한 일상이 됩니다.")
+              ])
+            ])
+          ])
+        ]),
 
+        h("main", {
+          key: "main",
+          className: "max-w-6xl mx-auto px-6 pb-20"
+        }, [
+          h("section", {
+            key: "overview",
+            id: "overview",
+            className: "grid md:grid-cols-4 gap-4 mt-4"
+          }, summaryCards.map((card, idx) =>
+            h("div", {
+              key: idx,
+              className: "rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-slate-200"
+            }, [
+              h("h3", { key: "t", className: "text-xl font-bold" }, card.title),
+              h("p", { key: "d", className: "mt-3 text-sm leading-6 text-slate-600" }, card.text)
+            ])
+          )),
+
+          h("section", {
+            key: "introText",
+            className: "mt-12 rounded-[28px] bg-white p-8 md:p-10 shadow-lg ring-1 ring-slate-200"
+          }, [
+            h("p", {
+              key: "introMini",
+              className: "text-sm font-semibold text-sky-700"
+            }, "Story Overview"),
+            h("h3", {
+              key: "introTitle",
+              className: "mt-2 text-3xl font-bold"
+            }, "우리 가족이 캐나다 생활을 만들어간 흐름"),
+            h("p", {
+              key: "introBody",
+              className: "mt-4 text-base leading-8 text-slate-700"
+            }, "새로운 나라로의 이동은 한 번의 큰 사건이 아니라 수많은 작은 선택의 연속이었습니다. 어떤 도시에서 살지, 아이 학교는 어떻게 준비할지, 생활비는 얼마나 드는지, 진학은 어떤 방향으로 갈지. 준비의 시간과 정착의 시간을 거치며 우리 가족은 조금씩 새로운 삶의 형태를 완성해 갔습니다.")
+          ]),
+
+          ...sections.map((s) =>
+            h("section", {
+              key: s.id,
+              id: s.id,
+              className: "mt-10 overflow-hidden rounded-[30px] bg-white shadow-xl ring-1 ring-slate-200"
+            }, [
+              h("div", {
+                key: "grid",
+                className: "grid md:grid-cols-[0.9fr_1.1fr]"
+              }, [
+                h("div", {
+                  key: "left",
+                  className: "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 p-8 md:p-10 text-white flex flex-col justify-between"
+                }, [
+                  h("div", { key: "leftTop" }, [
+                    h("p", {
+                      key: "step",
+                      className: "text-sm font-medium tracking-[0.2em] text-sky-300"
+                    }, s.step),
+                    h("div", {
+                      key: "emoji",
+                      className: "mt-5 text-5xl"
+                    }, s.emoji),
+                    h("h3", {
+                      key: "title",
+                      className: "mt-5 text-3xl md:text-4xl font-bold leading-tight"
+                    }, s.title),
+                    h("p", {
+                      key: "sub",
+                      className: "mt-4 text-base leading-7 text-slate-200"
+                    }, s.subtitle)
+                  ]),
+                  h("div", {
+                    key: "visual",
+                    className: "mt-8 rounded-[24px] border border-white/10 bg-white/5 p-5 text-sm text-slate-200"
+                  }, "이 영역에는 관련 사진이나 가족 기록 이미지를 넣을 수 있습니다.")
+                ]),
+                h("div", {
+                  key: "right",
+                  className: "p-8 md:p-10"
+                }, [
+                  h("p", {
+                    key: "body",
+                    className: "text-base leading-8 text-slate-700"
+                  }, s.text),
+                  h("div", {
+                    key: "pointWrap",
+                    className: "mt-6 grid gap-3"
+                  }, s.points.map((point, idx) =>
+                    h("div", {
+                      key: idx,
+                      className: "rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-sm text-slate-700"
+                    }, point)
+                  )),
+                  h("blockquote", {
+                    key: "quote",
+                    className: "mt-6 rounded-2xl border border-sky-100 bg-sky-50 px-5 py-4 text-sm font-medium leading-7 text-sky-900"
+                  }, "“가족이 함께였기에 낯선 생활도 새로운 가능성으로 바뀌었습니다.”")
+                ])
+              ])
+            ])
+          ),
+
+          h("section", {
+            key: "blogPreview",
+            className: "mt-12 grid md:grid-cols-[1.3fr_0.7fr] gap-6"
+          }, [
+            h("div", {
+              key: "left",
+              className: "rounded-[30px] bg-gradient-to-br from-sky-600 to-cyan-500 p-8 md:p-10 text-white shadow-lg"
+            }, [
+              h("p", { key: "mini", className: "text-sm text-sky-100" }, "Family Blog"),
+              h("h3", { key: "title", className: "mt-3 text-3xl font-bold leading-tight" }, "생활 기록을 블로그처럼 확장할 수 있습니다"),
+              h("p", { key: "body", className: "mt-4 text-sm md:text-base leading-8 text-sky-50" }, "정착 과정, 학교 등록 준비물, 첫 주 생활 팁, 컬리지 지원 경험 등을 별도 블로그 글로 쌓아두면 가족 기록 페이지이자 정보형 사이트로도 발전시킬 수 있습니다."),
+              h("a", {
+                key: "btn",
+                href: "blog.html",
+                className: "inline-block mt-6 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-sky-700 no-underline"
+              }, "블로그 페이지 보기")
+            ]),
+            h("div", {
+              key: "right",
+              className: "rounded-[30px] bg-white p-8 shadow-lg ring-1 ring-slate-200"
+            }, [
+              h("p", { key: "rmini", className: "text-sm font-semibold text-slate-500" }, "Quick Links"),
+              h("div", { key: "links", className: "mt-4 space-y-3" }, [
+                h("a", {
+                  key: "l1",
+                  href: "#research",
+                  className: "block rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 no-underline"
+                }, "사전 조사 보기"),
+                h("a", {
+                  key: "l2",
+                  href: "#settlement",
+                  className: "block rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 no-underline"
+                }, "정착 과정 보기"),
+                h("a", {
+                  key: "l3",
+                  href: "#elementary",
+                  className: "block rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 no-underline"
+                }, "초등학교 입학 보기"),
+                h("a", {
+                  key: "l4",
+                  href: "#college",
+                  className: "block rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 no-underline"
+                }, "컬리지 입학 보기")
+              ])
+            ])
+          ])
+        ]),
+
+        h("footer", {
+          key: "footer",
+          className: "border-t border-slate-200 bg-slate-950 text-slate-200"
+        }, h("div", {
+          className: "max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8"
+        }, [
+          h("div", { key: "f1" }, [
+            h("p", { key: "f1a", className: "text-sm font-medium text-sky-300" }, "우리 가족 캐나다 생활"),
+            h("h3", { key: "f1b", className: "mt-3 text-2xl font-bold text-white" }, "준비부터 정착, 교육까지"),
+            h("p", { key: "f1c", className: "mt-4 text-sm leading-7 text-slate-400" }, "한 가족이 새로운 나라에서 일상을 만들어가는 흐름을 정리한 정적 웹페이지입니다.")
+          ]),
+          h("div", { key: "f2" }, [
+            h("p", { key: "f2a", className: "text-sm font-medium text-white" }, "페이지 메뉴"),
+            h("div", { key: "f2b", className: "mt-4 space-y-2 text-sm" },
+              sections.map((s) =>
+                h("a", {
+                  key: s.id,
+                  href: "#" + s.id,
+                  className: "block text-slate-400 no-underline"
+                }, s.title)
+              )
+            )
+          ]),
+          h("div", { key: "f3" }, [
+            h("p", { key: "f3a", className: "text-sm font-medium text-white" }, "활용 팁"),
+            h("ul", { key: "f3b", className: "mt-4 space-y-2 text-sm text-slate-400 pl-5" }, [
+              h("li", { key: "tip1" }, "GitHub Pages에 index.html로 바로 배포 가능"),
+              h("li", { key: "tip2" }, "사진을 넣어 가족 스토리 페이지로 확장 가능"),
+              h("li", { key: "tip3" }, "blog.html과 연결해 기록형 사이트로 확장 가능")
+            ])
+          ])
+        ]))
+      ]);
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(h(App));
+  </script>
 </body>
 </html>
