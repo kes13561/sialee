@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>우리 가족 캐나다 생활 블로그</title>
+    <meta name="description" content="우리 가족의 캐나다 생활 기록과 정착 이야기를 담은 블로그 페이지" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(to bottom, #f8fafc, #ffffff, #f0f9ff);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="min-h-screen text-slate-900">
+      <header class="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <a href="index.html" class="flex items-center gap-3 text-slate-900 no-underline">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-white">🏠</div>
+            <div>
+              <p class="m-0 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">Family Blog</p>
+              <h1 class="m-0 text-base font-bold">우리 가족 캐나다 생활 기록</h1>
+            </div>
+          </a>
+          <nav class="flex items-center gap-3 text-sm">
+            <a href="index.html" class="rounded-full border border-slate-200 bg-white px-4 py-2 text-slate-700 no-underline">메인으로</a>
+            <a href="#posts" class="rounded-full border border-slate-200 bg-white px-4 py-2 text-slate-700 no-underline">글 목록</a>
+          </nav>
+        </div>
+      </header>
+
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.16),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.12),_transparent_28%)]"></div>
+        <div class="relative mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-2 md:py-24">
+          <div class="max-w-3xl">
+            <span class="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-sm font-medium text-sky-700">캐나다 생활 블로그</span>
+            <h2 class="mt-6 text-4xl font-bold tracking-tight leading-tight md:text-6xl">가족의 하루하루를 기록하는<br />정착 노트</h2>
+            <p class="mt-6 text-lg leading-8 text-slate-600">
+              준비, 정착, 학교, 진학까지. 우리 가족이 캐나다에서 보낸 시간과 경험을 글로 차곡차곡 정리한 블로그 페이지입니다.
+              정보와 감정을 함께 담아, 나중에 다시 보아도 기억이 살아나는 기록을 목표로 구성했습니다.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#posts" class="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white no-underline">최근 글 보기</a>
+              <a href="index.html" class="rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 no-underline">메인 페이지 이동</a>
+            </div>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="col-span-2 rounded-[28px] bg-white p-4 shadow-lg ring-1 ring-slate-200">
+              <div class="flex h-64 items-end rounded-[22px] bg-gradient-to-br from-sky-100 via-cyan-100 to-emerald-100 p-5 md:h-80">
+                <div class="rounded-2xl bg-white/80 px-4 py-3 text-sm text-slate-700 backdrop-blur-sm">
+                  가족의 기억과 생활 정보를 함께 담는 블로그 메인 비주얼 영역
+                </div>
+              </div>
+            </div>
+            <div class="rounded-[28px] bg-slate-900 p-6 text-white shadow-lg">
+              <div class="text-2xl">📝</div>
+              <p class="mt-3 text-sm text-sky-300">기록</p>
+              <h3 class="mt-2 text-xl font-bold">생활 노트</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-300">작은 경험도 정리해 두면 큰 도움이 됩니다.</p>
+            </div>
+            <div class="rounded-[28px] bg-white p-6 shadow-lg ring-1 ring-slate-200">
+              <div class="text-2xl">🍁</div>
+              <p class="mt-3 text-sm text-rose-600">캐나다</p>
+              <h3 class="mt-2 text-xl font-bold">정착 이야기</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-600">도시, 학교, 생활, 진학에 대한 실제 경험을 담습니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main id="posts" class="mx-auto max-w-6xl px-6 pb-20">
+        <section class="grid gap-4 md:grid-cols-4">
+          <div class="rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-slate-200">
+            <h3 class="text-xl font-bold">준비</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">출국 전 조사와 계획을 정리한 글</p>
+          </div>
+          <div class="rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-slate-200">
+            <h3 class="text-xl font-bold">정착</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">도착 후 실제 생활 적응 기록</p>
+          </div>
+          <div class="rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-slate-200">
+            <h3 class="text-xl font-bold">학교</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">아이 학교와 적응에 관한 이야기</p>
+          </div>
+          <div class="rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-slate-200">
+            <h3 class="text-xl font-bold">미래</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-600">진학과 다음 단계 준비 과정</p>
+          </div>
+        </section>
+
+        <section class="mt-12 grid gap-6 md:grid-cols-[1.5fr_0.9fr]">
+          <div class="space-y-6">
+            <article class="overflow-hidden rounded-[28px] bg-white shadow-lg ring-1 ring-slate-200">
+              <div class="h-64 bg-gradient-to-br from-sky-100 via-cyan-100 to-emerald-100"></div>
+              <div class="p-8">
+                <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                  <span class="rounded-full bg-sky-50 px-3 py-1 font-medium text-sky-700">준비</span>
+                  <span>2026-03-01</span>
+                </div>
+                <h3 class="mt-4 text-2xl font-bold">캐나다 이주 전 꼭 확인한 5가지</h3>
+                <p class="mt-4 text-sm leading-7 text-slate-600">
+                  도시 선택, 생활비, 학군, 집 구하기, 초기 정착 비용까지. 출국 전에 가장 먼저 정리했던 기준과 실제로 도움이 되었던 준비 내용을 한 번에 정리했습니다.
+                </p>
+                <div class="mt-6 rounded-2xl bg-slate-50 p-5 text-sm leading-7 text-slate-700">
+                  캐나다 이주를 준비하면서 가장 먼저 했던 일은 가족에게 맞는 도시를 비교하는 것이었습니다. 단순히 유명한 지역을 찾기보다 생활비, 교육 환경, 교통, 커뮤니티 접근성을 함께 봐야 실제 정착에 도움이 되었습니다.
+                </div>
+                <a href="#" class="mt-5 inline-block text-sm font-semibold text-sky-700 no-underline">글 더 읽기 →</a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[28px] bg-white shadow-lg ring-1 ring-slate-200">
+              <div class="h-64 bg-gradient-to-br from-amber-100 via-rose-50 to-sky-100"></div>
+              <div class="p-8">
+                <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                  <span class="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700">정착</span>
+                  <span>2026-03-05</span>
+                </div>
+                <h3 class="mt-4 text-2xl font-bold">도착 첫 주, 실제로 했던 정착 순서</h3>
+                <p class="mt-4 text-sm leading-7 text-slate-600">
+                  공항 도착부터 휴대폰 개통, 은행 계좌, 장보기, 동네 파악까지. 첫 주 동안 어떤 순서로 움직였는지 기록했습니다.
+                </p>
+                <div class="mt-6 rounded-2xl bg-slate-50 p-5 text-sm leading-7 text-slate-700">
+                  첫 주에는 모든 것을 한 번에 해결하려 하지 않고, 생활에 꼭 필요한 것부터 처리하는 방식이 훨씬 효율적이었습니다. 숙소, 통신, 금융, 이동 수단만 먼저 잡아도 정착 속도가 크게 빨라졌습니다.
+                </div>
+                <a href="#" class="mt-5 inline-block text-sm font-semibold text-sky-700 no-underline">글 더 읽기 →</a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[28px] bg-white shadow-lg ring-1 ring-slate-200">
+              <div class="h-64 bg-gradient-to-br from-violet-100 via-slate-50 to-sky-100"></div>
+              <div class="p-8">
+                <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                  <span class="rounded-full bg-violet-50 px-3 py-1 font-medium text-violet-700">학교</span>
+                  <span>2026-03-10</span>
+                </div>
+                <h3 class="mt-4 text-2xl font-bold">초등학교 등록 준비물과 아이 적응 이야기</h3>
+                <p class="mt-4 text-sm leading-7 text-slate-600">
+                  학군 확인, 서류 준비, ESL 여부 체크, 첫 등교 전 아이와 함께 준비한 과정을 기록했습니다.
+                </p>
+                <div class="mt-6 rounded-2xl bg-slate-50 p-5 text-sm leading-7 text-slate-700">
+                  학교 등록은 단순한 서류 절차가 아니라 아이가 새로운 환경을 받아들이는 시작점이었습니다. 첫 등교 전에는 시간표보다도 아이의 긴장을 덜어주는 대화가 더 중요했습니다.
+                </div>
+                <a href="#" class="mt-5 inline-block text-sm font-semibold text-sky-700 no-underline">글 더 읽기 →</a>
+              </div>
+            </article>
+          </div>
+
+          <aside class="space-y-6">
+            <section class="rounded-[28px] bg-white p-6 shadow-lg ring-1 ring-slate-200">
+              <h3 class="text-lg font-bold">카테고리</h3>
+              <div class="mt-4 flex flex-wrap gap-2 text-sm">
+                <span class="rounded-full bg-sky-50 px-3 py-2 text-sky-700">준비</span>
+                <span class="rounded-full bg-emerald-50 px-3 py-2 text-emerald-700">정착</span>
+                <span class="rounded-full bg-violet-50 px-3 py-2 text-violet-700">학교</span>
+                <span class="rounded-full bg-amber-50 px-3 py-2 text-amber-700">진학</span>
+              </div>
+            </section>
+
+            <section class="rounded-[28px] bg-white p-6 shadow-lg ring-1 ring-slate-200">
+              <h3 class="text-lg font-bold">추천 링크</h3>
+              <div class="mt-4 space-y-3 text-sm">
+                <a href="index.html#research" class="block rounded-2xl border border-slate-200 px-4 py-3 text-slate-700 no-underline">사전 조사 다시 보기</a>
+                <a href="index.html#settlement" class="block rounded-2xl border border-slate-200 px-4 py-3 text-slate-700 no-underline">정착 과정 다시 보기</a>
+                <a href="index.html#elementary" class="block rounded-2xl border border-slate-200 px-4 py-3 text-slate-700 no-underline">초등학교 입학 보기</a>
+                <a href="index.html#college" class="block rounded-2xl border border-slate-200 px-4 py-3 text-slate-700 no-underline">컬리지 입학 보기</a>
+              </div>
+            </section>
+
+            <section class="rounded-[28px] bg-slate-900 p-6 text-white shadow-lg">
+              <p class="text-sm text-sky-300">GitHub Pages 팁</p>
+              <p class="mt-3 text-sm leading-7 text-slate-300">
+                이 파일은 <span class="font-semibold text-white">blog.html</span> 이름으로 저장하고, 메인 파일은 <span class="font-semibold text-white">index.html</span>로 유지하면 정적 호스팅에서 바로 함께 동작합니다.
+              </p>
+            </section>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="border-t border-slate-200 bg-slate-950 text-slate-200">
+        <div class="mx-auto grid max-w-6xl gap-8 px-6 py-10 md:grid-cols-3">
+          <div>
+            <p class="text-sm font-medium text-sky-300">우리 가족 캐나다 블로그</p>
+            <h3 class="mt-3 text-2xl font-bold text-white">기록이 쌓이면 이야기의 깊이가 생깁니다</h3>
+            <p class="mt-4 text-sm leading-7 text-slate-400">
+              준비부터 정착, 학교와 진학까지. 가족이 지나온 시간을 글로 남기며 나중에 다시 꺼내볼 수 있는 생활 아카이브를 만듭니다.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-white">바로가기</p>
+            <div class="mt-4 space-y-2 text-sm">
+              <a href="index.html" class="block text-slate-400 no-underline">메인 페이지</a>
+              <a href="#posts" class="block text-slate-400 no-underline">최근 글</a>
+              <a href="index.html#research" class="block text-slate-400 no-underline">사전 조사</a>
+              <a href="index.html#college" class="block text-slate-400 no-underline">컬리지 준비</a>
+            </div>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-white">활용 아이디어</p>
+            <ul class="mt-4 space-y-2 pl-5 text-sm text-slate-400">
+              <li>글별 상세 페이지 추가</li>
+              <li>실제 사진 삽입으로 기록 강화</li>
+              <li>카테고리별 글 모아보기</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
